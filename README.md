@@ -290,7 +290,7 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <img src="C:/Users/DELL/OneDrive/桌面/微信图片_20250714182100.jpg" alt="Profile Photo" class="profile-img">
+            <img src="微信图片_20250714182100.jpg" alt="Profile Photo" class="profile-img">
             <h1>Dong Zihan</h1>
             <div class="subtitle">Undergraduate Student | School of Computer Science and Software Engineering, Southwest Petroleum University</div>
             <div class="contact-info">
