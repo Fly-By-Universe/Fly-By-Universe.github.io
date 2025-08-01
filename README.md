@@ -291,7 +291,7 @@
         <!-- Header Section -->
         <div class="header">
             <img src="微信图片_20250714182100.jpg" alt="Profile Photo" class="profile-img">
-            <h1>Dong Zihan</h1>
+            <h1>Zi-Han Dong </h1>
             <div class="subtitle">Undergraduate Student | School of Computer Science and Software Engineering, Southwest Petroleum University</div>
             <div class="contact-info">
                 <a href="mailto:202231036125@stu.swpu.edu.cn">📧 Email</a>
