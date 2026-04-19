@@ -1,386 +1,901 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dong Zihan - Personal Homepage</title>
+    <meta name="color-scheme" content="light">
+    <title>董子涵 | 个人主页</title>
     <style>
+        :root {
+            --bg-top: #dfeef2;
+            --bg-mid: #edf5f3;
+            --bg-bottom: #f7f4ea;
+            --ink: #20343a;
+            --muted: #5f7477;
+            --card: rgba(255, 255, 255, 0.72);
+            --card-strong: rgba(255, 255, 255, 0.88);
+            --line: rgba(68, 108, 114, 0.16);
+            --shadow: 0 24px 60px rgba(33, 67, 72, 0.12);
+            --teal: #2f7e86;
+            --teal-deep: #235f67;
+            --ice: #7cb7c8;
+            --sand: #d9c8ab;
+            --snow: #f7fbfc;
+            --pine: #6f8f87;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.75;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(124, 183, 200, 0.55), transparent 28%),
+                radial-gradient(circle at top right, rgba(217, 200, 171, 0.48), transparent 24%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 42%, var(--bg-bottom) 100%);
             min-height: 100vh;
         }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-radius: 15px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(120deg, rgba(255, 255, 255, 0.32), transparent 30%),
+                radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.45), transparent 18%);
         }
-        
-        .header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            margin-bottom: 30px;
+
+        .page {
+            width: min(1180px, calc(100% - 32px));
+            margin: 22px auto 36px;
+        }
+
+        .hero {
             position: relative;
             overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 28px;
+            padding: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 34px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(246, 251, 252, 0.66));
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
         }
-        
-        .header::before {
-            content: '';
+
+        .hero::after {
+            content: "";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .profile-img {
-            width: 180px;
-            height: 180px;
+            inset: auto -10% -42% auto;
+            width: 340px;
+            height: 340px;
             border-radius: 50%;
-            margin: 0 auto 25px;
-            display: block;
-            border: 5px solid #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-            position: relative;
-            z-index: 1;
+            background: radial-gradient(circle, rgba(124, 183, 200, 0.28), transparent 68%);
         }
-        
-        .profile-img:hover {
-            transform: scale(1.05);
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(47, 126, 134, 0.1);
+            color: var(--teal-deep);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
-        
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--ice));
+            box-shadow: 0 0 0 6px rgba(47, 126, 134, 0.08);
+        }
+
         h1 {
             margin: 0;
-            color: #2c3e50;
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
         }
-        
-        .subtitle {
-            color: #5a6c7d;
-            font-size: 1.3em;
-            margin-top: 10px;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
+
+        .hero p {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 720px;
         }
-        
-        .contact-info {
-            margin-top: 25px;
-            position: relative;
-            z-index: 1;
+
+        .hero strong {
+            color: var(--teal-deep);
         }
-        
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 8px 16px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            background: rgba(52, 152, 219, 0.1);
-        }
-        
-        .contact-info a:hover {
-            background: #3498db;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-        
-        .section {
-            margin: 40px 0;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .section h2 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-            position: relative;
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #e74c3c;
-        }
-        
-        .education-item, .experience-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            border-left: 5px solid #3498db;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .education-item:hover, .experience-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-        
-        .publication {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f1f3f4 0%, #e8eaf6 100%);
-            border-radius: 8px;
-            border-left: 4px solid #9c27b0;
-            transition: all 0.3s ease;
-        }
-        
-        .publication:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.2);
-        }
-        
-        .skills {
+
+        .badge-row,
+        .contact-row,
+        .chips,
+        .skills,
+        .highlights {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
-        
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
+
+        .badge-row {
+            margin-top: 22px;
         }
-        
-        .skill-tag:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+
+        .badge {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(47, 126, 134, 0.14);
+            color: var(--teal-deep);
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 22px rgba(53, 96, 101, 0.08);
         }
-        
-        .about-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-            text-align: justify;
+
+        .contact-row {
+            margin-top: 24px;
         }
-        
-        .research-list {
-            list-style: none;
-            padding: 0;
+
+        .contact-row a {
+            text-decoration: none;
+            color: var(--ink);
+            padding: 11px 16px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.68);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        
-        .research-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+
+        .contact-row a:hover {
+            transform: translateY(-2px);
+            border-color: rgba(47, 126, 134, 0.3);
+            box-shadow: 0 12px 26px rgba(35, 95, 103, 0.12);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .stat {
+            padding: 18px 16px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(95, 116, 119, 0.12);
+        }
+
+        .stat .value {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            line-height: 1.1;
+        }
+
+        .stat .label {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .scenery {
             position: relative;
-            padding-left: 30px;
+            min-height: 470px;
+            border-radius: 30px;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, #e8f5fb 0%, #d8edf1 34%, #cde1db 60%, #d9d0be 100%);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
-        
-        .research-list li::before {
-            content: '▶';
+
+        .sun {
+            position: absolute;
+            top: 62px;
+            right: 68px;
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #fffdf4 0%, #f8e8bb 58%, rgba(248, 232, 187, 0.45) 78%, transparent 100%);
+            box-shadow: 0 0 48px rgba(248, 232, 187, 0.7);
+        }
+
+        .mist {
+            position: absolute;
+            inset: 22px 0 auto 0;
+            height: 120px;
+            background:
+                radial-gradient(circle at 18% 55%, rgba(255, 255, 255, 0.85), transparent 22%),
+                radial-gradient(circle at 58% 45%, rgba(255, 255, 255, 0.62), transparent 19%),
+                radial-gradient(circle at 82% 65%, rgba(255, 255, 255, 0.66), transparent 16%);
+        }
+
+        .mountain {
             position: absolute;
             left: 0;
-            color: #3498db;
-            font-weight: bold;
+            right: 0;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
-        
-        .awards-list {
-            list-style: none;
-            padding: 0;
+
+        .mountain.back {
+            bottom: 160px;
+            height: 170px;
+            background:
+                linear-gradient(180deg, rgba(184, 207, 214, 0.92), rgba(117, 144, 151, 0.98));
+            clip-path: polygon(0 100%, 10% 78%, 22% 48%, 34% 66%, 47% 30%, 60% 68%, 74% 41%, 86% 70%, 100% 52%, 100% 100%);
         }
-        
-        .awards-list li {
-            padding: 15px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            border-left: 4px solid #f39c12;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+
+        .mountain.mid {
+            bottom: 118px;
+            height: 190px;
+            background:
+                linear-gradient(180deg, rgba(115, 146, 149, 0.98), rgba(76, 103, 108, 1));
+            clip-path: polygon(0 100%, 0 72%, 16% 84%, 30% 38%, 42% 68%, 56% 28%, 70% 76%, 84% 48%, 100% 82%, 100% 100%);
         }
-        
-        .awards-list li:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+
+        .mountain.front {
+            bottom: 86px;
+            height: 148px;
+            background:
+                linear-gradient(180deg, rgba(91, 128, 119, 0.96), rgba(57, 88, 80, 1));
+            clip-path: polygon(0 100%, 0 78%, 14% 86%, 27% 58%, 39% 90%, 51% 64%, 63% 82%, 75% 55%, 88% 86%, 100% 74%, 100% 100%);
         }
-        
+
+        .snowcap {
+            position: absolute;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(231, 244, 248, 0.9));
+            clip-path: polygon(0 100%, 22% 62%, 40% 40%, 59% 56%, 82% 34%, 100% 100%);
+            opacity: 0.95;
+        }
+
+        .snowcap.one {
+            bottom: 243px;
+            left: 118px;
+            width: 138px;
+            height: 72px;
+        }
+
+        .snowcap.two {
+            bottom: 230px;
+            left: 248px;
+            width: 156px;
+            height: 84px;
+        }
+
+        .shore {
+            position: absolute;
+            left: -8%;
+            right: -6%;
+            bottom: -10px;
+            height: 122px;
+            border-radius: 52% 48% 0 0 / 100% 100% 0 0;
+            background:
+                linear-gradient(180deg, rgba(219, 207, 183, 0.96), rgba(201, 184, 154, 1));
+        }
+
+        .water {
+            position: absolute;
+            left: -8%;
+            right: -8%;
+            bottom: 68px;
+            height: 96px;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            background:
+                linear-gradient(180deg, rgba(164, 215, 223, 0.92), rgba(111, 173, 183, 0.95));
+        }
+
+        .wave {
+            position: absolute;
+            left: -10%;
+            right: -10%;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.44);
+            filter: blur(0.6px);
+        }
+
+        .wave.one {
+            bottom: 118px;
+        }
+
+        .wave.two {
+            bottom: 95px;
+            left: -4%;
+            right: -14%;
+            opacity: 0.76;
+        }
+
+        .hero-card {
+            position: absolute;
+            right: 22px;
+            bottom: 26px;
+            width: min(84%, 310px);
+            padding: 18px 18px 16px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 18px 34px rgba(40, 70, 73, 0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card .mini-title {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+            font-weight: 700;
+        }
+
+        .hero-card h2 {
+            margin: 10px 0 8px;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-card p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hero-card .stack {
+            margin-top: 14px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .stack-item {
+            padding: 10px 12px;
+            border-radius: 16px;
+            background: rgba(242, 248, 248, 0.92);
+            border: 1px solid rgba(47, 126, 134, 0.09);
+            font-size: 13px;
+            color: #35535a;
+        }
+
+        .section {
+            margin-top: 24px;
+            padding: 28px;
+            border-radius: 28px;
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.56);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .section-title h3 {
+            margin: 0;
+            font-size: 26px;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .intro-grid,
+        .double-grid,
+        .project-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .intro-grid {
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .double-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card {
+            padding: 22px;
+            border-radius: 24px;
+            background: var(--card-strong);
+            border: 1px solid var(--line);
+        }
+
+        .card h4 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            line-height: 1.35;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 16px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px 20px 20px 22px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--line);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: 0;
+            width: 5px;
+            height: calc(100% - 48px);
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--ice), var(--teal));
+        }
+
+        .timeline .time {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--teal-deep);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .timeline-item h4 {
+            margin: 0 0 6px;
+            font-size: 20px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .chips .chip,
+        .skills .skill {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(47, 126, 134, 0.12), rgba(124, 183, 200, 0.16));
+            border: 1px solid rgba(47, 126, 134, 0.14);
+            color: var(--teal-deep);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project {
+            padding: 22px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--line);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px rgba(43, 79, 84, 0.12);
+        }
+
+        .project .project-tag {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(47, 126, 134, 0.1);
+            color: var(--teal-deep);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .project h4 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            line-height: 1.35;
+        }
+
+        .project p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .list-item {
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--line);
+        }
+
+        .list-item strong {
+            color: var(--ink);
+        }
+
+        .quote {
+            position: relative;
+            overflow: hidden;
+            padding: 26px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(35, 95, 103, 0.92), rgba(100, 144, 153, 0.92));
+            color: #f7fcfd;
+        }
+
+        .quote::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .quote p {
+            margin: 0;
+            font-size: 16px;
+            color: rgba(247, 252, 253, 0.9);
+        }
+
+        .quote strong {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(247, 252, 253, 0.72);
+        }
+
         .footer {
+            margin-top: 24px;
+            padding: 22px 28px;
             text-align: center;
-            margin-top: 50px;
-            padding: 30px 0;
-            border-top: 2px solid #e9ecef;
-            color: #6c757d;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
+            color: var(--muted);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.58);
+            box-shadow: var(--shadow);
         }
-        
-        .placeholder {
-            color: #999;
-            font-style: italic;
-            background: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            border: 2px dashed #ccc;
+
+        @media (max-width: 980px) {
+            .hero,
+            .intro-grid,
+            .double-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .scenery {
+                min-height: 400px;
+            }
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 18px, 100%);
+                margin: 10px auto 18px;
             }
-            
-            h1 {
-                font-size: 2.2em;
+
+            .hero,
+            .section {
+                padding: 20px;
+                border-radius: 24px;
             }
-            
-            .contact-info a {
-                margin: 5px;
-                display: block;
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                width: calc(100% - 24px);
+                right: 12px;
+                bottom: 12px;
+            }
+
+            .contact-row a {
+                width: 100%;
                 text-align: center;
-            }
-            
-            .skills {
-                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <img src="me.jpg" alt="Profile Photo" class="profile-img">
-            <h1>Zi-Han Dong</h1>
-            <div class="subtitle">Undergraduate Student | School of Computer Science and Software Engineering, Southwest Petroleum University</div>
-            <div class="contact-info">
-                <a href="mailto:202231036125@stu.swpu.edu.cn">📧 Email</a>
-                <a href="https://github.com/Fly-By-Universe">💻 GitHub</a>
-                <a href="#" class="placeholder">💼 LinkedIn (To be added)</a>
-                <a href="#" class="placeholder">🎓 Google Scholar (To be added)</a>
+    <div class="page">
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Dong Zihan / 董子涵</div>
+                <h1>从聚类算法走向 LLM 智能体</h1>
+                <p>
+                    你好，我是<strong>董子涵</strong>，目前就读于<strong>西南石油大学计算机科学与技术专业本科</strong>，
+                    已录取至<strong>中国科学技术大学先进技术研究院计算机技术方向</strong>。我当前的研究主线正从
+                    <strong>半监督聚类与数据挖掘</strong>逐步延展到<strong>LLM 智能体、多智能体协作与复杂工作流设计</strong>，
+                    希望把扎实的算法建模能力与面向真实场景的系统构建能力结合起来。
+                </p>
+
+                <div class="badge-row">
+                    <span class="badge">本科在读 · 2026 届</span>
+                    <span class="badge">USTC 先研院已录取</span>
+                    <span class="badge">研究方向：LLM Agents</span>
+                    <span class="badge">兼具聚类算法积累</span>
+                </div>
+
+                <div class="contact-row">
+                    <a href="mailto:15931577367@163.com">邮箱：15931577367@163.com</a>
+                    <a href="tel:15931577367">电话：15931577367</a>
+                    <a href="https://github.com/Fly-By-Universe" target="_blank" rel="noopener noreferrer">GitHub：Fly-By-Universe</a>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="value">4.00 / 5.00</div>
+                        <div class="label">GPA</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">Top 9%</div>
+                        <div class="label">专业排名 15 / 176</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">CET-6 506</div>
+                        <div class="label">英语能力</div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">10+</div>
+                        <div class="label">省校级竞赛与奖项</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- About Me Section -->
-        <div class="section">
-            <h2>About Me</h2>
-            <p class="about-text">
-                I am Dong Zihan, an undergraduate student at the School of Computer Science and Software Engineering, Southwest Petroleum University. I am currently working and studying at the Sichuan Provincial Engineering Research Center for Intelligent Oil and Gas Exploration and Development and the High-Performance Computing Center for Oil and Gas at Southwest Petroleum University. I was admitted to Southwest Petroleum University in 2022 and began studying Computer Science and Technology in 2024. I have received several provincial awards and scholarships. Currently, I am dedicated to research in semi-supervised clustering algorithms.
-            </p>
-        </div>
+            <div class="scenery" aria-hidden="true">
+                <div class="mist"></div>
+                <div class="sun"></div>
+                <div class="mountain back"></div>
+                <div class="snowcap one"></div>
+                <div class="mountain mid"></div>
+                <div class="snowcap two"></div>
+                <div class="mountain front"></div>
+                <div class="water"></div>
+                <div class="wave one"></div>
+                <div class="wave two"></div>
+                <div class="shore"></div>
 
-        <!-- Education Section -->
-        <div class="section">
-            <h2>Education</h2>
-            <div class="education-item">
-                <strong>Bachelor of Science in Computer Science and Technology</strong><br>
-                Southwest Petroleum University, 2022 - Present<br>
-                <em>Supervisor: Prof. Xie Wenbo</em><br>
-                GPA: 4.00/5.00 | Rank: Top 9%
+                <div class="hero-card">
+                    <div class="mini-title">Current Focus</div>
+                    <h2>自然系界面下的研究者画像</h2>
+                    <p>像海岸线一样保持开放，像雪山一样保持结构与秩序。</p>
+                    <div class="stack">
+                        <div class="stack-item">当前身份：西南石油大学本科生</div>
+                        <div class="stack-item">下一站：中国科学技术大学先进技术研究院</div>
+                        <div class="stack-item">关键词：LLM 智能体 / 多 Agent / 半监督聚类</div>
+                    </div>
+                </div>
             </div>
-            <div class="education-item">
-                <strong>High School</strong><br>
-                Fengrun Chezhou Mountain Middle School, Hebei, 2019 - 2022
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>关于我</h3>
+                <span>Current Status</span>
             </div>
-        </div>
-
-        <!-- Research Interests Section -->
-        <div class="section">
-            <h2>Research Interests</h2>
-            <ul class="research-list">
-                <li>Semi-supervised Clustering</li>
-                <li>Density Peak Clustering</li>
-                <li class="placeholder">Additional research areas (To be added)</li>
-                <li class="placeholder">Future research directions (To be added)</li>
-            </ul>
-        </div>
-
-        <!-- Publications Section -->
-        <div class="section">
-            <h2>Publications</h2>
-            <div class="placeholder">
-                <p><strong>Publications will be added here as they become available</strong></p>
-                <p>This section is reserved for future academic publications, conference papers, and journal articles.</p>
+            <div class="intro-grid">
+                <div class="card">
+                    <h4>当前阶段</h4>
+                    <p>
+                        我目前仍是一名本科生，正在完成西南石油大学计算机科学与技术专业的本科学习，并已完成向更高平台的过渡准备。
+                        在本科阶段，我一方面保持专业前列的学业表现，另一方面持续投入科研训练，从阅读文献、提出问题、算法建模、
+                        实验验证到论文修改，逐步形成了较完整的研究闭环。
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>研究气质</h4>
+                    <p>
+                        我对“有结构的问题”有天然兴趣。早期主要聚焦于半监督聚类、主动聚类与数据挖掘，
+                        现在则进一步关注 LLM 智能体、多智能体协同和复杂任务工作流设计，希望将算法推理能力迁移到更具系统性的智能应用中。
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Skills Section -->
-        <div class="section">
-            <h2>Skills & Expertise</h2>
+        <section class="section">
+            <div class="section-title">
+                <h3>教育经历</h3>
+                <span>Education</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="time">2022.09 - 2026.06</span>
+                    <h4>西南石油大学 · 计算机科学与技术本科</h4>
+                    <p>
+                        GPA 4.00/5.00，均分 90.00，专业排名 15/176。核心课程成绩包括数据结构 100、概率统计 99、
+                        高等数学 I 98、程序设计基础 96、面向数据科学的编程语言 95。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">2026 秋季起</span>
+                    <h4>中国科学技术大学先进技术研究院 · 计算机技术方向</h4>
+                    <p>
+                        已考入中科大先研院，后续将围绕 LLM 智能体、生成式 AI 与更复杂的智能系统设计继续深入学习与研究。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>研究兴趣</h3>
+                <span>Research Interests</span>
+            </div>
+            <div class="chips">
+                <span class="chip">LLM 智能体</span>
+                <span class="chip">多智能体协作</span>
+                <span class="chip">生成式 AI</span>
+                <span class="chip">半监督聚类</span>
+                <span class="chip">主动聚类</span>
+                <span class="chip">数据挖掘</span>
+                <span class="chip">长文本结构化生成</span>
+                <span class="chip">复杂工作流设计</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>代表研究与项目</h3>
+                <span>Selected Work</span>
+            </div>
+            <div class="project-grid">
+                <article class="project">
+                    <div class="project-tag">LLM Agents</div>
+                    <h4>基于多 Agent 协同的结构化长文本写作框架</h4>
+                    <p>
+                        独立完成建模与代码实现，构建具有人在回路的两阶段写作框架。在结构化大纲阶段设计“三步三模块双相扫描”方法，
+                        在协同创作阶段引入“圆桌会议”式多智能体博弈，支持 50k+ 中文长篇文本的长程叙事一致性与多视角评审。
+                    </p>
+                </article>
+                <article class="project">
+                    <div class="project-tag">Semi-Supervised Clustering</div>
+                    <h4>EvoStar 半监督聚类框架</h4>
+                    <p>
+                        以第一作者身份开展研究，围绕结构建模与标注效率提出新型聚类框架。主要负责算法设计、复杂度分析、
+                        理论推导、系统实验、论文初稿撰写与修改，相关工作目前处于 SIGKDD 2026 在投阶段。
+                    </p>
+                </article>
+                <article class="project">
+                    <div class="project-tag">Algorithm Design</div>
+                    <h4>基于连通分量万有引力的半监督聚类算法</h4>
+                    <p>
+                        从近邻拓扑一致性与万有引力机制出发，完成算法核心建模与代码实现。
+                        通过构建基础骨架图、提取连通分量代表点并进行查询式合并，实现较高聚类质量与较好的结构解释性。
+                    </p>
+                </article>
+                <article class="project">
+                    <div class="project-tag">Research Collaboration</div>
+                    <h4>主动聚类方法研究</h4>
+                    <p>
+                        以第三作者身份参与面向大规模数据的主动聚类研究，关注高效样本选择与聚类优化，
+                        参与论文审查、修改以及部分文本撰写，进一步强化了我对聚类性能与标注效率平衡问题的理解。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>科研训练与能力画像</h3>
+                <span>Strengths</span>
+            </div>
+            <div class="double-grid">
+                <div class="card">
+                    <h4>科研积累</h4>
+                    <p>
+                        自 2024 年 8 月起在西南石油大学相关科研平台接受系统训练，经历了从文献梳理、问题提出、
+                        方法设计、实验验证到审稿意见消化与持续改进的完整过程。相比单点成果，我更看重自己逐渐形成的独立研究能力。
+                    </p>
+                </div>
+                <div class="quote">
+                    <strong>Research Motto</strong>
+                    <p>
+                        我希望自己既能写出严谨的算法，也能做出真正可运行、可落地、可扩展的智能系统。
+                        从聚类算法到 LLM Agent，本质上都是在寻找“结构化地解决复杂问题”的路径。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>竞赛与荣誉</h3>
+                <span>Honors</span>
+            </div>
+            <div class="list">
+                <div class="list-item"><strong>全国大学生数学竞赛</strong> 省一等奖 2 次（第 16、17 届）</div>
+                <div class="list-item"><strong>蓝桥杯全国软件和信息技术专业人才大赛</strong> 四川赛区 Python 程序设计大学 B 组三等奖</div>
+                <div class="list-item"><strong>全国大学生数学建模竞赛</strong> 省二等奖（编程手）</div>
+                <div class="list-item"><strong>全国大学生工程训练能力竞赛</strong> 省二等奖</div>
+                <div class="list-item"><strong>大学生创新创业竞赛</strong> 省银奖（成员）</div>
+                <div class="list-item"><strong>学业表现</strong> 专业前 10%，多次获得专业奖学金</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h3>技能关键词</h3>
+                <span>Skills</span>
+            </div>
             <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">Mathematical Competitions</span>
+                <span class="skill">Python</span>
+                <span class="skill">Java</span>
+                <span class="skill">C</span>
+                <span class="skill">算法建模</span>
+                <span class="skill">数据挖掘</span>
+                <span class="skill">LLM Workflow</span>
+                <span class="skill">多 Agent 架构设计</span>
+                <span class="skill">科研写作 / LaTeX</span>
+                <span class="skill">实验设计与分析</span>
             </div>
-        </div>
+        </section>
 
-        <!-- Experience Section -->
-        <div class="section">
-            <h2>Experience</h2>
-            <div class="placeholder">
-                <p><strong>Professional experience will be added here</strong></p>
-                <p>This section is reserved for internships, research positions, and professional work experience.</p>
+        <section class="section">
+            <div class="section-title">
+                <h3>联系我</h3>
+                <span>Contact</span>
             </div>
-        </div>
+            <div class="double-grid">
+                <div class="card">
+                    <h4>欢迎交流</h4>
+                    <p>
+                        如果你也对 LLM 智能体、生成式 AI、多智能体协作系统或聚类算法感兴趣，
+                        欢迎通过邮件与我联系。我也乐于交流科研经历、算法想法与项目实现。
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>联系方式</h4>
+                    <p>邮箱：15931577367@163.com</p>
+                    <p>电话：15931577367</p>
+                    <p>GitHub：github.com/Fly-By-Universe</p>
+                    <p>籍贯：河北省唐山市</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Awards & Honors Section -->
-        <div class="section">
-            <h2>Awards & Honors</h2>
-            <ul class="awards-list">
-                <li><strong>First Prize, National College Mathematics Competition (Provincial Level)</strong><br>
-                    Chinese Mathematical Society, 2024</li>
-                <li><strong>Second Prize, China Undergraduate Mathematical Contest in Modeling (Provincial Level)</strong><br>
-                    China Society for Industrial and Applied Mathematics, 2024</li>
-            </ul>
-        </div>
-
-        <!-- Footer -->
         <div class="footer">
-            <p>Last Updated: July 14, 2025 | © Dong Zihan</p>
-            <p>This website is designed for academic and professional purposes.</p>
+            最后更新：2026.04.19 · 本页基于当前本科阶段与中科大先研院已录取信息整理
         </div>
     </div>
 </body>
